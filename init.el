@@ -70,3 +70,9 @@
 (prefer-coding-system 'utf-8)
 (setq default-coding-systems 'utf-8)(set-terminal-coding-system 'euc-jp)
 (set-keyboard-coding-system 'euc-jp)
+
+(setq delete-auto-save-files t)
+
+(auto-image-file-mode t)
+
+(setq backup-inhibited t)
