@@ -1,0 +1,27 @@
+roscore
+roscore
+cd catkin_ws/
+roscore
+rosrun
+roscore
+cd ..
+cd catkin_ws/
+ls
+roscore
+roscore
+roscore
+cd ..
+cd home/~
+cd ./
+cd
+roscore
+roscore
+cd .emacs.d/
+roscore
+roscore
+ls -a
+rm #init.el#
+ls
+rm -r #init.el#
+ls
+ls
