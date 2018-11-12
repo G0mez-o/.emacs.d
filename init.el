@@ -38,7 +38,7 @@
 ;; selected region
 (global-set-key (kbd "C-c o") 'comment-region)
 
-;;release-comment-out
+;; release-comment-out
 (global-set-key (kbd "C-c ;") 'comment-or-uncomment-region)
 
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 5)))
