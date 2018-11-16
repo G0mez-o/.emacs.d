@@ -113,10 +113,10 @@
 ;; elscreen（上部タブ）
 (require 'elscreen)
 (elscreen-start)
-(global-set-key (kbd "s-t") 'elscreen-create)
+(global-set-key (kbd "\C-z \C-c") 'elscreen-create)
 (global-set-key "\C-l" 'elscreen-next)
 (global-set-key "\C-r" 'elscreen-previous)
-(global-set-key (kbd "s-d") 'elscreen-kill)
+(global-set-key (kbd "\C-z \C-d") 'elscreen-kill)
 (set-face-attribute 'elscreen-tab-background-face nil
                     :background "grey10"
                     :foreground "grey90")
