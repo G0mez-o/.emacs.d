@@ -25,3 +25,18 @@ ls
 rm -r #init.el#
 ls
 ls
+ls
+cd GraduateThesis2018/
+la
+la
+ll
+ls
+cd osada_tex_dir/
+ls
+cd documents/
+la
+l
+ls
+platex B15104021OSADA.tex 
+platex
+python3

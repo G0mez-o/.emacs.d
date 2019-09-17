@@ -133,7 +133,7 @@
 (setq elscreen-tab-display-kill-screen nil)
 ;;; [<->]を表示しない
 (setq elscreen-tab-display-control nil)
-;;; タブに表示させる内容を決定
+ ;;; タブに表示させる内容を決定
 (setq elscreen-buffer-to-nickname-alist
       '(("^dired-mode$" .
          (lambda ()
@@ -141,7 +141,7 @@
         ("^Info-mode$" .
          (lambda ()
            (format "Info(%s)" (file-name-nondirectory Info-current-file))))
-        ("^mew-draft-mode$" .
+        ("^mew-draft-mode$" . 
          (lambda ()
            (format "Mew(%s)" (buffer-name (current-buffer)))))
         ("^mew-" . "Mew")
@@ -176,7 +176,18 @@
 (defun toggle-truncate-lines ())
 (setq inferior-lisp-program "clisp")
 ;; ~/.emacs.d/slimeをload-pathに追加
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/slime"))
+
 ;; SLIMEのロード
-(require 'slime)
-(slime-setup '(slime-repl slime-fancy slime-banner)) 
+;; (require 'slime)
+;; (slime-setup '(slime-repl slime-fancy slime-banner)) 
+
+(add-hook 'c++-mode-hook
+          '(lambda()
+             (c-set-style "stroustrup")
+             (setq indent-tabs-mode nil)     ; インデントは空白文字で行う（TABコードを空白に変換）
+             (c-set-offset 'innamespace 0)   ; namespace {}の中はインデントしない
+             (c-set-offset 'arglist-close 0) ; 関数の引数リストの閉じ括弧はインデントしない
+	     (c-set-offset 'substatement-open '0)
+             )) 
+(setq auto-save-default nil)
+(setq make-backup-files nil)
