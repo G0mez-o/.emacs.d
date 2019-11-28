@@ -118,7 +118,7 @@
 (elscreen-start)
 (global-set-key (kbd "\C-z \C-c") 'elscreen-create)
 (global-set-key "\C-l" 'elscreen-next)
-(global-set-key "\C-r" 'elscreen-previous)
+(global-set-key "\C-q" 'elscreen-previous)
 (global-set-key (kbd "\C-z \C-d") 'elscreen-kill)
 (set-face-attribute 'elscreen-tab-background-face nil
                     :background "grey10"
@@ -213,3 +213,32 @@
  (when (and (file-exists-p dir) (not (member dir exec-path)))
    (setenv "PATH" (concat dir ":" (getenv "PATH")))
    (setq exec-path (append (list dir) exec-path))))
+
+(add-to-list 'auto-mode-alist '("\\.urdf" . nxml-mode))
+(add-to-list 'auto-mode-alist '("\\.xacro" . nxml-mode))
+(add-to-list 'auto-mode-alist '("\\.launch" . nxml-mode))
+(add-to-list 'auto-mode-alist '("\\.yaml" . yaml-mode))
+
+(require 'ox-latex)
+(require 'ox-bibtex)
+
+(setq org-latex-classes '(("ltjsarticle"
+            "\\documentclass{ltjsarticle}
+\\usepackage{graphicx}
+\\usepackage{color}
+\\usepackage{atbegshi}
+\\usepackage[unicode=true,bookmarks=true]{hyperref}
+\\usepackage{bookmark}
+\\usepackage{url}
+[NO-DEFAULT-PACKAGES]
+[PACKAGES]
+[EXTRA]"
+            ("\\section{%s}" . "\\section*{%s}")
+            ("\\subsection{%s}" . "\\subsection*{%s}")
+            ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+            ("\\paragraph{%s}" . "\\paragraph*{%s}")
+            ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))
+               ))
+
+(setq org-latex-default-class "ltjsarticle")
+(setq org-latex-pdf-process '("lualatex %b" "lualatex %b"))
