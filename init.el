@@ -3,30 +3,41 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ansi-color-faces-vector
-   [default default default italic underline success warning error])
- '(ansi-color-names-vector
-   ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
- '(custom-enabled-themes (quote (wombat)))
  '(font-use-system-font t)
  '(package-selected-packages
    (quote
-    (markdown-mode undo-tree smartparens neotree elscreen auto-complete-c-headers)))
+    (twittering-mode multi-term mpv eww-lnum magit markdown-mode undo-tree smartparens neotree elscreen auto-complete-c-headers)))
  '(show-paren-mode t)
  '(tool-bar-mode nil)
  '(tool-bar-position (quote bottom)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:family "Ubuntu Mono" :foundry "DAMA" :slant normal :weight normal :height 128 :width normal)))))
-(global-linum-mode t)
-(add-to-list 'auto-mode-alist'("\\.md\\'" . markdown-mode))
-(setq inhibit-startup-screen t)
 
-;; showing full-pass on title
-(setq frame-title-format "%f")
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(package-initialize)
+
+(package-initialize)
+(setq package-archives
+      '(("gnu" . "http://elpa.gnu.org/packages/")
+        ("melpa" . "http://melpa.org/packages/")
+        ("org" . "http://orgmode.org/elpa/")))
+
+;;ロードパスを自動で追加する関数
+(defun add-to-load-path (&rest paths)
+  (let (path)
+    (dolist (path paths paths)
+      (let ((default-directory
+	      (expand-file-name (concat user-emacs-directory path))))
+	(add-to-list 'load-path default-directory)
+	(if (fboundp 'normal-top-level-add-subdirs-to-load-path)
+	    (normal-top-level-add-subdirs-to-load-path))))))
+(add-to-load-path "conf")
+(load "display_set")
+(load "org_set")
+
+(setq ac-comphist-file "~/.emacs.d/cache/auto-complete/ac-comphist.dat")
+
+(setq auto-save-list-file-prefix "~/.emacs.d/cache/")
 
 ;; deleting initial-scratch-message
 (setq initial-scratch-message "")
@@ -48,19 +59,6 @@
 
 (setq completion-ignore-case t)
 
-(defface hlline-face
-  '((((class color)
-      (background dark))
-     (:background "dark slate gray"))
-    (((class color)
-      (background light))
-     (:background  "#98FB98"))
-    (t
-     ()))
-  "*Face used by hl-line.")
-(setq hl-line-face 'hlline-face)
-(global-hl-line-mode)
-
 (require 'wdired)
 (define-key dired-mode-map "r" 'wdired-change-to-wdired-mode)
 
@@ -80,11 +78,6 @@
 
 (setq backup-inhibited t)
 
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-(package-initialize)
-
 ;; auto-complete
 (require 'auto-complete-config)
 (ac-config-default)
@@ -95,16 +88,6 @@
 (ac-set-trigger-key "TAB")
 (setq ac-use-menu-map t)       ;; 補完メニュー表示時にC-n/C-pで補完候補選択
 (setq ac-use-fuzzy t)          ;; 曖昧マッチ
-
-;; showing column-number
-(column-number-mode t)
-
-;; showing file-size
-(size-indication-mode t)
-
-
-(setq-default show-trailing-whitespace t)
-(set-face-background 'trailing-whitespace "#b14770")
 
 (require 'smartparens)
 (smartparens-global-mode t)
@@ -166,13 +149,6 @@
 (require 'neotree)
 (global-set-key "\C-o" 'neotree-toggle)
 
-
-(package-initialize)
-(setq package-archives
-      '(("gnu" . "http://elpa.gnu.org/packages/")
-        ("melpa" . "http://melpa.org/packages/")
-        ("org" . "http://orgmode.org/elpa/")))
-
 (require 'undo-tree)
 (global-undo-tree-mode t)
 (global-set-key (kbd "M-/") 'undo-tree-redo)
@@ -219,26 +195,37 @@
 (add-to-list 'auto-mode-alist '("\\.launch" . nxml-mode))
 (add-to-list 'auto-mode-alist '("\\.yaml" . yaml-mode))
 
-(require 'ox-latex)
-(require 'ox-bibtex)
+(setenv "LANG" "en_US.UTF-8")
+(global-set-key (kbd "C-x g") 'magit-status)
 
-(setq org-latex-classes '(("ltjsarticle"
-            "\\documentclass{ltjsarticle}
-\\usepackage{graphicx}
-\\usepackage{color}
-\\usepackage{atbegshi}
-\\usepackage[unicode=true,bookmarks=true]{hyperref}
-\\usepackage{bookmark}
-\\usepackage{url}
-[NO-DEFAULT-PACKAGES]
-[PACKAGES]
-[EXTRA]"
-            ("\\section{%s}" . "\\section*{%s}")
-            ("\\subsection{%s}" . "\\subsection*{%s}")
-            ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-            ("\\paragraph{%s}" . "\\paragraph*{%s}")
-            ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))
-               ))
+(add-hook 'c++-mode-hook
+          '(lambda ()
+             (hs-minor-mode 1)))
+(add-hook 'c-mode-hook
+          '(lambda ()
+             (hs-minor-mode 1)))
+(add-hook 'scheme-mode-hook
+          '(lambda ()
+             (hs-minor-mode 1)))
+(add-hook 'emacs-lisp-mode-hook
+          '(lambda ()
+             (hs-minor-mode 1)))
+(add-hook 'lisp-mode-hook
+          '(lambda ()
+             (hs-minor-mode 1)))
+(add-hook 'python-mode-hook
+          '(lambda ()
+             (hs-minor-mode 1)))
+(add-hook 'ruby-mode-hook
+          '(lambda ()
+             (hs-minor-mode 1)))
+(add-hook 'xml-mode-hook
+          '(lambda ()
+             (hs-minor-mode 1)))
 
-(setq org-latex-default-class "ltjsarticle")
-(setq org-latex-pdf-process '("lualatex %b" "lualatex %b"))
+(define-key
+  global-map
+  (kbd "C-#") 'hs-toggle-hiding)
+
+(require 'eww)
+(setq eww-search-prefix "https://www.google.co.jp/search?q=")

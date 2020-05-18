@@ -40,3 +40,69 @@ ls
 platex B15104021OSADA.tex 
 platex
 python3
+ls
+cd
+cd Desktop/
+ls
+ls -a
+ls
+cd
+ls
+cd Downloads/
+ls -a
+cd ..
+chmod 777 Downloads/
+sudo chmod 777 Downloads/
+sudo chmod 777 Downloads/
+ls
+ls
+cd cache/
+mkdir auto-complete
+ls
+cd ..
+ls
+mv ac-comphist.dat ./cache/auto-complete/
+ls
+ls
+cd auto-save-list/
+ls
+ls
+cd ..
+ls
+rm -rf auto-save-list/
+ls
+cd eshell/
+ls
+cd ..
+ls
+ls
+ls
+rm -rf auto-save-list/
+ls
+cd cache/
+ls
+cd ..
+ls
+cd elpa
+ls
+cd elpa
+cd archives/
+ls
+cd marmalade/
+ls
+cat archive-contents 
+ls
+cd ..
+cd ..
+cd ..
+ls
+cd elpa
+ls
+cd twittering-mode-20181121.1402/
+ls
+cd
+cd .emacs.d/
+ls
+ls -a
+ls -a
+ls -a
