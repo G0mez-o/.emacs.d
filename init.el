@@ -11,16 +11,35 @@
  '(tool-bar-mode nil)
  '(tool-bar-position (quote bottom)))
 
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-(package-initialize)
+(defvar my-favorite-package-list
+  '(twittering-mode
+    multi-term
+    mpv
+    eww-lnum
+    magit
+    markdown-mode
+    undo-tree
+    smartparens
+    neotree
+    elscreen
+    auto-complete-c-headers)
+  "packages to be installed")
 
-(package-initialize)
+(require 'package)
+;; (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+;; (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+;; (package-initialize)
 (setq package-archives
       '(("gnu" . "http://elpa.gnu.org/packages/")
         ("melpa" . "http://melpa.org/packages/")
         ("org" . "http://orgmode.org/elpa/")))
+(package-initialize)
+(package-refresh-contents)
+(unless package-archive-contents (package-refresh-contents))
+(dolist (pkg my-favorite-package-list)
+  (unless (package-installed-p pkg)
+    (package-install pkg)))
+
 
 ;;ロードパスを自動で追加する関数
 (defun add-to-load-path (&rest paths)

@@ -1,3 +1,4 @@
+(require 'org)
 (require 'ox-latex)
 (require 'ox-bibtex)
 
