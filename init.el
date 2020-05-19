@@ -22,7 +22,8 @@
     smartparens
     neotree
     elscreen
-    auto-complete-c-headers)
+    auto-complete-c-headers
+    org-plus-contrib)
   "packages to be installed")
 
 (require 'package)
