@@ -11,37 +11,6 @@
  '(tool-bar-mode nil)
  '(tool-bar-position (quote bottom)))
 
-(defvar my-favorite-package-list
-  '(twittering-mode
-    multi-term
-    mpv
-    eww-lnum
-    magit
-    markdown-mode
-    undo-tree
-    smartparens
-    neotree
-    elscreen
-    auto-complete-c-headers
-    org-plus-contrib)
-  "packages to be installed")
-
-(require 'package)
-;; (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
-;; (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-;; (package-initialize)
-(setq package-archives
-      '(("gnu" . "http://elpa.gnu.org/packages/")
-        ("melpa" . "http://melpa.org/packages/")
-        ("org" . "http://orgmode.org/elpa/")))
-(package-initialize)
-(package-refresh-contents)
-(unless package-archive-contents (package-refresh-contents))
-(dolist (pkg my-favorite-package-list)
-  (unless (package-installed-p pkg)
-    (package-install pkg)))
-
-
 ;;ロードパスを自動で追加する関数
 (defun add-to-load-path (&rest paths)
   (let (path)
@@ -52,8 +21,10 @@
 	(if (fboundp 'normal-top-level-add-subdirs-to-load-path)
 	    (normal-top-level-add-subdirs-to-load-path))))))
 (add-to-load-path "conf")
+(load "package_setting")
 (load "display_set")
 (load "org_set")
+(load "c_cpp_setting")
 
 (setq ac-comphist-file "~/.emacs.d/cache/auto-complete/ac-comphist.dat")
 
@@ -92,8 +63,6 @@
 (setq default-coding-systems 'utf-8)(set-terminal-coding-system 'euc-jp)
 (set-keyboard-coding-system 'euc-jp)
 
-(setq delete-auto-save-files t)
-
 (auto-image-file-mode t)
 
 (setq backup-inhibited t)
@@ -111,10 +80,6 @@
 
 (require 'smartparens)
 (smartparens-global-mode t)
-
-(require 'auto-complete-c-headers)
-(add-hook 'c++-mode-hook '(setq ac-sources (append ac-sources '(ac-source-c-headers))))
-(add-hook 'c-mode-hook '(setq ac-sources (append ac-sources '(ac-source-c-headers))))
 
 ;; elscreen（上部タブ）
 (require 'elscreen)
@@ -174,26 +139,10 @@
 (global-set-key (kbd "M-/") 'undo-tree-redo)
 (defun toggle-truncate-lines ())
 (setq inferior-lisp-program "clisp")
-;; ~/.emacs.d/slimeをload-pathに追加
 
-;; SLIMEのロード
-;; (require 'slime)
-;; (slime-setup '(slime-repl slime-fancy slime-banner)) 
-
-(add-hook 'c++-mode-hook
-          '(lambda()
-             ;; (c-set-style "gnu")
-             (setq indent-tabs-mode nil)     ; インデントは空白文字で行う（TABコードを空白に変換）
-             (c-set-offset 'innamespace 0)   ; namespace {}の中はインデントしない
-             (c-set-offset 'arglist-close 0) ; 関数の引数リストの閉じ括弧はインデントしない
-	     (c-set-offset 'substatement-open '0)
-             )) 
-(setq auto-save-default nil)
 (setq make-backup-files nil)
 
 (autoload 'markdown-mode "markdown-mode.el" "Major mode for editing Markdown files" t)
-
-;; (setq markdown-command "pandoc")
 
 (dolist (dir (list
               "/sbin"
