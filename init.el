@@ -25,6 +25,7 @@
 (load "display_set")
 (load "org_set")
 (load "c_cpp_setting")
+(load "emacsh")
 
 (setq ac-comphist-file "~/.emacs.d/cache/auto-complete/ac-comphist.dat")
 
