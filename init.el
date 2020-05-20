@@ -27,7 +27,7 @@
 (load "org_set")
 (load "c_cpp_setting")
 (load "emacsh")
-(load "pdf_viewer")
+;; (load "pdf_viewer")
 (load "mpv_setting")
 (load "eww_setting")
 
