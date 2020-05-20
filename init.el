@@ -6,7 +6,7 @@
  '(font-use-system-font t)
  '(package-selected-packages
    (quote
-    (pdf-tools twittering-mode multi-term mpv eww-lnum magit markdown-mode undo-tree smartparens neotree elscreen auto-complete-c-headers)))
+    (use-package pdf-tools twittering-mode multi-term mpv eww-lnum magit markdown-mode undo-tree smartparens neotree elscreen auto-complete-c-headers)))
  '(show-paren-mode t)
  '(tool-bar-mode nil)
  '(tool-bar-position (quote bottom)))
@@ -22,11 +22,14 @@
 	    (normal-top-level-add-subdirs-to-load-path))))))
 (add-to-load-path "conf")
 (load "package_setting")
+(require 'use-package)
 (load "display_set")
 (load "org_set")
 (load "c_cpp_setting")
 (load "emacsh")
 (load "pdf_viewer")
+(load "mpv_setting")
+(load "eww_setting")
 
 (setq ac-comphist-file "~/.emacs.d/cache/auto-complete/ac-comphist.dat")
 
@@ -198,8 +201,6 @@
   global-map
   (kbd "C-#") 'hs-toggle-hiding)
 
-(require 'eww)
-(setq eww-search-prefix "https://www.google.co.jp/search?q=")
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

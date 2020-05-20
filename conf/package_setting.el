@@ -11,7 +11,8 @@
     elscreen
     auto-complete-c-headers
     org-plus-contrib
-    pdf-tools)
+    pdf-tools
+    use-package)
   "packages to be installed")
 
 (require 'package)
