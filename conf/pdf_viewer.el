@@ -1,4 +1,3 @@
-(pdf-tools-install)
 (require 'pdf-tools)
 (require 'pdf-annot) 
 (require 'pdf-history) 

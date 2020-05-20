@@ -21,6 +21,7 @@
         ("org" . "http://orgmode.org/elpa/")))
 (package-initialize)
 (package-refresh-contents)
+(pdf-tools-install)
 (unless package-archive-contents (package-refresh-contents))
 (dolist (pkg my-favorite-package-list)
   (unless (package-installed-p pkg)
