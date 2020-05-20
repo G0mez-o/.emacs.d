@@ -1,3 +1,4 @@
+(package-initialize)
 (pdf-tools-install)
 (use-package pdf-tools)
 (use-package pdf-annot)
