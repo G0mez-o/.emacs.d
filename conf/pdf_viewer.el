@@ -1,5 +1,15 @@
-(package-initialize)
-(pdf-tools-install)
+;; (Package-initialize)
+;; (pdf-tools-install)
+(when (eq system-type 'darwin)
+  (use-package pdf-tools
+    :ensure t
+    :config
+    (custom-set-variables
+      '(pdf-tools-handle-upgrades nil)) ; Use brew upgrade pdf-tools instead.
+    (setq pdf-info-epdfinfo-program "/usr/local/bin/epdfinfo"))
+  (pdf-tools-install))
+(when (eq system-type 'gnu/linux)
+  (pdf-tools-install))
 (use-package pdf-tools)
 (use-package pdf-annot)
 (use-package pdf-history)
