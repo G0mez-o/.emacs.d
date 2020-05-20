@@ -10,7 +10,8 @@
     neotree
     elscreen
     auto-complete-c-headers
-    org-plus-contrib)
+    org-plus-contrib
+    pdf-tools)
   "packages to be installed")
 
 (require 'package)
