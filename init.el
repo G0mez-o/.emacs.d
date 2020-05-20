@@ -6,7 +6,7 @@
  '(font-use-system-font t)
  '(package-selected-packages
    (quote
-    (use-package pdf-tools twittering-mode multi-term mpv eww-lnum magit markdown-mode undo-tree smartparens neotree elscreen auto-complete-c-headers)))
+    (org-plus-contrib use-package pdf-tools twittering-mode multi-term mpv eww-lnum magit markdown-mode undo-tree smartparens neotree elscreen auto-complete-c-headers)))
  '(show-paren-mode t)
  '(tool-bar-mode nil)
  '(tool-bar-position (quote bottom)))
@@ -27,7 +27,7 @@
 (load "org_set")
 (load "c_cpp_setting")
 (load "emacsh")
-;; (load "pdf_viewer")
+(load "pdf_viewer")
 (load "mpv_setting")
 (load "eww_setting")
 
