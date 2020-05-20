@@ -26,4 +26,4 @@
 (dolist (pkg my-favorite-package-list)
   (unless (package-installed-p pkg)
     (package-install pkg)))
-(pdf-tools-install)
+;; (pdf-tools-install)

@@ -1,4 +1,6 @@
-(require 'pdf-tools)
+(use-package pdf-tools
+  :config
+  (pdf-tools-install))
 (require 'pdf-annot) 
 (require 'pdf-history) 
 (require 'pdf-info) 
