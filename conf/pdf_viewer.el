@@ -77,7 +77,7 @@
   (pdf-tools-install)
   )
 
-(use-package pdf-annot)
+;; (use-package pdf-annot)
 (use-package pdf-history)
 (use-package pdf-info)
 (use-package pdf-isearch)
