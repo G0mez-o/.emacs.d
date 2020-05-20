@@ -1,4 +1,3 @@
-(pdf-tools-install)
 ;; (when (eq system-type 'darwin)
 ;;   (use-package pdf-tools
 ;;     :ensure t
@@ -50,3 +49,4 @@
     (pdf-isearch-minor-mode)
   )
 )
+(pdf-tools-install)

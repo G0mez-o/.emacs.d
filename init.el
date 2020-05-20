@@ -27,7 +27,6 @@
 (load "org_set")
 (load "c_cpp_setting")
 (load "emacsh")
-;; (load "pdf_viewer")
 (load "mpv_setting")
 (load "eww_setting")
 
@@ -200,7 +199,7 @@
 (define-key
   global-map
   (kbd "C-#") 'hs-toggle-hiding)
-
+(load "pdf_viewer")
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
