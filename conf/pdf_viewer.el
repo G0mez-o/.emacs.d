@@ -2,7 +2,7 @@
   :ensure t
   :config
   ;; initialise
-  (pdf-tools-install)
+  ;; (pdf-tools-install)
   )
 ;; (use-package pdf-annot)
 (use-package pdf-history)
@@ -44,3 +44,4 @@
     (pdf-isearch-minor-mode)
   )
 )
+(pdf-tools-install)
