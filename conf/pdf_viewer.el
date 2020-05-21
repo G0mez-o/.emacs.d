@@ -44,4 +44,4 @@
     (pdf-isearch-minor-mode)
   )
 )
-(pdf-tools-install)
+;; (pdf-tools-install)
