@@ -31,6 +31,8 @@
 (load "mpv_setting")
 (load "eww_setting")
 
+(pdf-tools-install)
+
 (setq ac-comphist-file "~/.emacs.d/cache/auto-complete/ac-comphist.dat")
 
 (setq auto-save-list-file-prefix "~/.emacs.d/cache/")
