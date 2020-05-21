@@ -1,17 +1,23 @@
-;; (require 'eww)
-;; ;; (setq eww-search-prefix "https://www.google.co.jp/search?q=")
-;; (defun duckduckgo (search-string)
-;;   "Search Duck Duck Go for SEARCH-STRING.
-
-;; Use kd=-1 to turn off redirecting - seems to be required in order
-;; for result links to work in DDG."
-;;   (interactive "sDuckDuckGo for: ")
-;;   (let ((url-format "https://duckduckgo.com/html/?q=%s&kd=-1"))
-;;     (eww (format url-format (url-hexify-string search-string)))))
-
 (use-package eww
   :commands (eww)
   :config
   (setq eww-search-prefix "http://www.google.co.jp/search?q=")
   (defadvice linum-on(around my-linum-eww-on() activate)
     (unless (eq major-mode 'eww-mode) ad-do-it)))
+
+(defvar eww-disable-colorize t)
+(defun shr-colorize-region--disable (orig start end fg &optional bg &rest _)
+  (unless eww-disable-colorize
+    (funcall orig start end fg)))
+(advice-add 'shr-colorize-region :around 'shr-colorize-region--disable)
+(advice-add 'eww-colorize-region :around 'shr-colorize-region--disable)
+(defun eww-disable-color ()
+  "eww で文字色を反映させない"
+  (interactive)
+  (setq-local eww-disable-colorize t)
+  (eww-reload))
+(defun eww-enable-color ()
+  "eww で文字色を反映させる"
+  (interactive)
+  (setq-local eww-disable-colorize nil)
+  (eww-reload))

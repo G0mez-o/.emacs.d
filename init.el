@@ -6,7 +6,7 @@
  '(font-use-system-font t)
  '(package-selected-packages
    (quote
-    (org-plus-contrib use-package pdf-tools twittering-mode multi-term mpv eww-lnum magit markdown-mode undo-tree smartparens neotree elscreen auto-complete-c-headers)))
+    (dired-k uimage org-plus-contrib use-package pdf-tools twittering-mode multi-term mpv eww-lnum magit markdown-mode undo-tree smartparens neotree elscreen auto-complete-c-headers)))
  '(show-paren-mode t)
  '(tool-bar-mode nil)
  '(tool-bar-position (quote bottom)))
@@ -27,6 +27,7 @@
 (load "org_set")
 (load "c_cpp_setting")
 (load "emacsh")
+(load "pdf_viewer")
 (load "mpv_setting")
 (load "eww_setting")
 
@@ -34,8 +35,7 @@
 
 (setq auto-save-list-file-prefix "~/.emacs.d/cache/")
 
-;; deleting initial-scratch-message
-(setq initial-scratch-message "")
+(load "init_message.el")
 
 ;; active window move
 (global-set-key (kbd "<C-left>")  'windmove-left)
@@ -196,10 +196,17 @@
           '(lambda ()
              (hs-minor-mode 1)))
 
+(define-key global-map [?¥] [?\\])
+
 (define-key
   global-map
   (kbd "C-#") 'hs-toggle-hiding)
-(load "pdf_viewer")
+
+(require 'dired)
+(define-key dired-mode-map (kbd "g") 'dired-k)
+(add-hook 'dired-initial-position-hook 'dired-k)
+
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

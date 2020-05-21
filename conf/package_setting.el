@@ -12,7 +12,8 @@
     auto-complete-c-headers
     org-plus-contrib
     pdf-tools
-    use-package)
+    use-package
+    dired-k)
   "packages to be installed")
 
 (require 'package)
