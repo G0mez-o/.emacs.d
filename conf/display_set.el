@@ -44,8 +44,8 @@
 (setq whitespace-style '(face           ; faceで可視化
                          trailing       ; 行末
                          ;; tabs           ; タブ
-                         empty          ; 先頭/末尾の空行
-                         SPACES         ; 空白
+                         ;; empty          ; 先頭/末尾の空行
+                         ;; SPACES         ; 空白
                          ;; space-mark     ; 表示のマッピング
                          tab-mark))
 
