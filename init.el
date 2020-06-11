@@ -41,6 +41,8 @@
 
 (load "init_message.el")
 
+(global-set-key [M-tab] 'other-window)
+
 ;; active window move
 (global-set-key (kbd "<C-left>")  'windmove-left)
 (global-set-key (kbd "<C-down>")  'windmove-down)
