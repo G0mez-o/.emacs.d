@@ -1,0 +1,20 @@
+* Org-mode Setup
+
+** for MacOS
+macOSでorg-modeのpdf出力を行う際にはluatexを用いるのでそのための準備を以下で行う.
+  - =brew cask install basictex=
+  - =sudo tlmgr update --self --all=
+  - =sudo tlmgr install collection-langjapanese=
+  - =sudo tlmgr install collection-luatex=
+  - =sudo tlmgr install collection-latexextra=
+  - =brew install ghostscript=
+  - =brew install imagemagick=
+  - =sudo port install texlive-lang-japanese texlive-luatex texlive-xetex texlive=
+
+** for Linux
+now setting.
+
+** Reference
+  - [[https://texwiki.texjp.org/?Emacs%2FOrg%20mode][TEX Wikiのorg-mode解説ページ]]
+  - [[https://texwiki.texjp.org/?TeX%20Live%2FMac][TEX WikiのmacOS用解説ページ]]
+  - [[https://taipapamotohus.com/post/org-mode_paper_1/][ord-modeでのhtml出力及びpdf出力で参考にしたページ]]
