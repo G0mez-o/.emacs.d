@@ -21,7 +21,7 @@
                ))
 
 (setq org-latex-default-class "ltjsarticle")
-(setq org-latex-pdf-process '("lualatex %b" "lualatex %b"))
+(setq org-latex-pdf-process '("lualatex %b" "lualatex %b" "pbibtex %b" "lualatex %b" "lualatex %b" "lualatex %b"))
 
 (defun org-mode-reftex-setup ()
   (load-library "reftex")
@@ -40,4 +40,12 @@
    (list
     (read-file-name "bibfile-name: ")))
   (setq reftex-default-bibliography `(,(format "%s" filename)))
+)
+
+(defun biblio-write(bib bst)
+  (interactive
+   (list
+    (read-file-name "used-bibfile-name: ")
+    (read-string "used-bstfile-name: ")))
+  (insert (format "#+BIBLIOGRAPHY: %s %s option:-a limit:t" bib bst))
 )
