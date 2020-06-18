@@ -2,19 +2,55 @@
 
 ** for MacOS
 macOSでorg-modeのpdf出力を行う際にはluatexを用いるのでそのための準備を以下で行う.
-  - =brew cask install basictex=
-  - =sudo tlmgr update --self --all=
-  - =sudo tlmgr install collection-langjapanese=
-  - =sudo tlmgr install collection-luatex=
-  - =sudo tlmgr install collection-latexextra=
-  - =brew install ghostscript=
-  - =brew install imagemagick=
-  - =sudo port install texlive-lang-japanese texlive-luatex texlive-xetex texlive=
+#+BEGIN_SRC sh
+brew cask install basictex
+#+END_SRC
+#+BEGIN_SRC sh
+sudo tlmgr update --self --all
+#+END_SRC
+#+BEGIN_SRC sh
+sudo tlmgr install collection-langjapanese
+#+END_SRC
+#+BEGIN_SRC sh
+sudo tlmgr install collection-luatex
+#+END_SRC
+#+BEGIN_SRC sh
+sudo tlmgr install collection-latexextra
+#+END_SRC
+#+BEGIN_SRC sh
+brew install ghostscript
+#+END_SRC
+#+BEGIN_SRC sh
+brew install imagemagick
+#+END_SRC
+#+BEGIN_SRC sh
+brew cask install basictex
+#+END_SRC
 
 ** for Linux
 now setting.
+
+** bib-file上の参考文献の検索方法
+define-bibfileコマンドで用いるbibファイルを設定する.その後C-c )コマンドで文献の検索ができる
+
+** 参考文献の引用方法
+対象のorgファイルの文末に以下を記載する
+#+BEGIN_SRC org
+#+BIBLIOGRAPHY: "full pathname or relative pathname to using bib-file" "using bst-file like plain and etc..." option:-a limit:t
+#+END_SRC
+また、引用した際の脚注の表示方法は自由に設定できる.例えば対象のorgファイルの文頭に以下のように記述する
+#+BEGIN_SRC org
+#+LaTeX_HEADER: \usepackage[numbers,comma,square,sort]{natbib}
+#+END_SRC
+そして引用を示したい箇所に\citeと記載すると[num]と表示される
+natbibのオプションなどについてはReferenceのリンク先を参照
+また、複数のbibファイルを用いるときはカンマで区切る（スペース等で離してはいけいない）
+
+
 
 ** Reference
   - [[https://texwiki.texjp.org/?Emacs%2FOrg%20mode][TEX Wikiのorg-mode解説ページ]]
   - [[https://texwiki.texjp.org/?TeX%20Live%2FMac][TEX WikiのmacOS用解説ページ]]
   - [[https://taipapamotohus.com/post/org-mode_paper_1/][ord-modeでのhtml出力及びpdf出力で参考にしたページ]]
+  - [[https://gking.harvard.edu/files/natnotes2.pdf][natbibのリファレンスページ]]
+  - [[https://qiita.com/skrb_hs/items/73061b7a8e39f1e73e0d][文献管理ツールZoteroのインストール等で参考にしたページ]]
