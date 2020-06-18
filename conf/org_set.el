@@ -34,4 +34,10 @@
 (setq reftex-external-file-finders
        '(("tex" . "kpsewhich -format=.tex %f")
 	 ("bib" . "kpsewhich -format=.bib %f")))
-(setq reftex-default-bibliography '("~/org_workspace/clustering.bib"))
+
+(defun define-bibfile (filename)
+  (interactive
+   (list
+    (read-file-name "bibfile-name: ")))
+  (setq reftex-default-bibliography `(,(format "%s" filename)))
+)
