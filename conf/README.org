@@ -25,7 +25,15 @@ brew install imagemagick
 #+END_SRC
 
 ** for Linux
-now setting.
+#+BEGIN_SRC sh
+sudo apt-get update -y
+#+END_SRC
+#+BEGIN_SRC sh
+sudo apt-get install -y luatex
+#+END_SRC
+#+BEGIN_SRC sh
+sudo apt-get install texlive-full
+#+END_SRC
 
 ** bib-file上の参考文献の検索方法
 define-bibfileコマンドで用いるbibファイルを設定する.その後C-c )コマンドで文献の検索ができる
