@@ -13,7 +13,8 @@
     org-plus-contrib
     pdf-tools
     use-package
-    dired-k)
+    dired-k
+    restart-emacs)
   "packages to be installed")
 
 (require 'package)
