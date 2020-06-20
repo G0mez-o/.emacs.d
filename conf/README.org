@@ -23,9 +23,6 @@ brew install ghostscript
 #+BEGIN_SRC sh
 brew install imagemagick
 #+END_SRC
-#+BEGIN_SRC sh
-brew cask install basictex
-#+END_SRC
 
 ** for Linux
 now setting.
