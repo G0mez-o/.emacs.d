@@ -29,9 +29,6 @@ brew install imagemagick
 sudo apt-get update -y
 #+END_SRC
 #+BEGIN_SRC sh
-sudo apt-get install -y luatex
-#+END_SRC
-#+BEGIN_SRC sh
 sudo apt-get install texlive-full
 #+END_SRC
 
