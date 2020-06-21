@@ -1,0 +1,3 @@
+[submodule "emacs-bash-completion"]
+	path = emacs-bash-completion
+	url = https://github.com/szermatt/emacs-bash-completion
