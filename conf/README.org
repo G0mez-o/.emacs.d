@@ -33,7 +33,7 @@ sudo apt-get install texlive-full
 #+END_SRC
 
 ** bib-file上の参考文献の検索方法
-define-bibfileコマンドで用いるbibファイルを設定する.その後C-c )コマンドで文献の検索ができる
+~define-bibfile~ コマンドで用いるbibファイルを設定する.その後C-c )コマンドで文献の検索ができる
 
 ** 参考文献の引用方法
 対象のorgファイルの文末に以下を記載する
