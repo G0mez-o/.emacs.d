@@ -1,0 +1,22 @@
+#+OPTIONS: \n:t
+
+* My ROSEMACS
+rosemacsのインストールや設定のメモ書き
+~init.el~ ではパスを通してないので使うときには ~load-file~ を実行してください.
+** Install rosemacs
+#+BEGIN_SRC emacs-lisp
+M-x init_rosemacs-install
+#+END_SRC
+
+** Turn on rosemacs
+#+BEGIN_SRC emacs-lisp
+M-x rosemacs-turnon
+#+END_SRC
+
+** 現状と今後
+~ros-launch~ を実行すると ~let: Searching for program: No such file or directory, rospack~ というエラーが出力され、
+汎用的に使用することができていない( ~ros-core~ のみ実行可能)
+色々設定等を見なおさないと使用することができなさそうなので現状emacsでrosを実行するならshellを開いて分割して実行したほうが有意義.
+
+** Reference
+[[http://wiki.ros.org/rosemacs][ROS Wikiのrosemacs解説ページ]]
