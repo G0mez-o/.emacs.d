@@ -32,7 +32,7 @@
 (load "mpv_setting")
 (load "eww_setting")
 
-(load "bash-completion")
+;; (load "bash-completion")
 
 (require 'bash-completion)
 (bash-completion-setup)
