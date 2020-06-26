@@ -239,9 +239,9 @@ buffer boundaries with possible narrowing."
 
 
 
-(org-http-inline-image-enable)
+;; (org-http-inline-image-enable)
 
-(require 'ox-taskjuggler)
+;; (require 'ox-taskjuggler)
 
-(setq org-todo-keywords
-      '((sequence "TODO(t)" "WAIT(w)" "NOTE(n)"  "|" "DONE(d)" "SOMEDAY(s)" "CANCEL(c)")))
+;; (setq org-todo-keywords
+;;       '((sequence "TODO(t)" "WAIT(w)" "NOTE(n)"  "|" "DONE(d)" "SOMEDAY(s)" "CANCEL(c)")))
