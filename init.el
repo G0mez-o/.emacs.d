@@ -6,7 +6,7 @@
  '(font-use-system-font t)
  '(package-selected-packages
    (quote
-    (restart-emacs dired-k uimage org-plus-contrib use-package pdf-tools twittering-mode multi-term mpv eww-lnum magit markdown-mode undo-tree smartparens neotree elscreen auto-complete-c-headers)))
+    (cmake-mode restart-emacs dired-k uimage org-plus-contrib use-package pdf-tools twittering-mode multi-term mpv eww-lnum magit markdown-mode undo-tree smartparens neotree elscreen auto-complete-c-headers)))
  '(show-paren-mode t)
  '(tool-bar-mode nil)
  '(tool-bar-position (quote bottom)))
