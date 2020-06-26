@@ -34,8 +34,8 @@
 
 ;; (load "bash-completion")
 
-(require 'bash-completion)
-(bash-completion-setup)
+;; (require 'bash-completion)
+;; (bash-completion-setup)
 
 
 (when (eq system-type 'gnu/linux)
