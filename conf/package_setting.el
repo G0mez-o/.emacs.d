@@ -14,7 +14,8 @@
     pdf-tools
     use-package
     dired-k
-    restart-emacs)
+    restart-emacs
+    cmake-mode)
   "packages to be installed")
 
 (require 'package)
