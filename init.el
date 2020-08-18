@@ -80,6 +80,10 @@
 (setq default-coding-systems 'utf-8)(set-terminal-coding-system 'euc-jp)
 (set-keyboard-coding-system 'euc-jp)
 
+(turn-on-auto-fill)
+
+(setq fill-column 80)
+
 (auto-image-file-mode t)
 
 (setq backup-inhibited t)

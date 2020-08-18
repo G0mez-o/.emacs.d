@@ -11,6 +11,7 @@
 \\usepackage{bookmark}
 \\usepackage{url}
 \\usepackage{caption}
+\\usepackage{amsmath}
 \\renewcommand{\\figurename}{Fig. }
 \\renewcommand{\\tablename}{Table. }
 
@@ -245,3 +246,11 @@ buffer boundaries with possible narrowing."
 
 ;; (setq org-todo-keywords
 ;;       '((sequence "TODO(t)" "WAIT(w)" "NOTE(n)"  "|" "DONE(d)" "SOMEDAY(s)" "CANCEL(c)")))
+
+(setq org-startup-truncated nil)
+(defun change-truncation()
+  (interactive)
+  (cond ((eq truncate-lines nil)
+         (setq truncate-lines t))
+        (t
+         (setq truncate-lines nil))))
