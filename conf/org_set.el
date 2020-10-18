@@ -14,7 +14,6 @@
 \\usepackage{amsmath}
 \\renewcommand{\\figurename}{Fig. }
 \\renewcommand{\\tablename}{Table. }
-
 [NO-DEFAULT-PACKAGES]
 [PACKAGES]
 [EXTRA]"
@@ -254,3 +253,17 @@ buffer boundaries with possible narrowing."
          (setq truncate-lines t))
         (t
          (setq truncate-lines nil))))
+;; (setq org-use-sub-superscripts nil)
+;; (setq org-export-with-sub-superscripts nil)
+
+(defun set-init-header ()
+  (interactive) 
+  (insert "#+LaTeX_CLASS_OPTIONS: [12pt]\n")
+  (insert "#+LaTeX_HEADER: \\usepackage[numbers,comma,square,sort,compress]{natbib}\n")
+  (insert "#+OPTIONS: data:nil\n")
+  (insert "#+OPTIONS: ^:{}\n")
+  (insert "#+TITLE: \n")
+  (insert "#+AUTHOR: \n")
+  (insert "\\vspace*{1.5cm}\n")
+  (insert "#+LATEX: \\newpage\n")
+  )
