@@ -15,7 +15,8 @@
     use-package
     dired-k
     restart-emacs
-    cmake-mode)
+    cmake-mode
+    minimap)
   "packages to be installed")
 
 (require 'package)

@@ -6,7 +6,7 @@
  '(font-use-system-font t)
  '(package-selected-packages
    (quote
-    (cmake-mode restart-emacs dired-k uimage org-plus-contrib use-package pdf-tools twittering-mode multi-term mpv eww-lnum magit markdown-mode undo-tree smartparens neotree elscreen auto-complete-c-headers)))
+    (minimap cmake-mode restart-emacs dired-k uimage org-plus-contrib use-package pdf-tools twittering-mode multi-term mpv eww-lnum magit markdown-mode undo-tree smartparens neotree elscreen auto-complete-c-headers)))
  '(show-paren-mode t)
  '(tool-bar-mode nil)
  '(tool-bar-position (quote bottom)))
@@ -31,6 +31,7 @@
 (load "pdf_viewer")
 (load "mpv_setting")
 (load "eww_setting")
+
 
 ;; (load "bash-completion")
 
@@ -212,6 +213,9 @@
 (add-hook 'xml-mode-hook
           '(lambda ()
              (hs-minor-mode 1)))
+(add-hook 'rust-mode-hook
+          '(lambda ()
+             (hs-minor-mode 1)))
 
 (define-key global-map [?¥] [?\\])
 
@@ -222,6 +226,13 @@
 (require 'dired)
 (define-key dired-mode-map (kbd "g") 'dired-k)
 (add-hook 'dired-initial-position-hook 'dired-k)
+
+(use-package minimap)
+(setq minimap-window-location 'right)
+(setq minimap-update-delay 0.2)
+(setq minimap-minimum-width 10)
+(global-set-key (kbd "C-x m") 'minimap-mode)
+
 
 
 (custom-set-faces
