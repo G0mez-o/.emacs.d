@@ -2,12 +2,11 @@
 (require 'ox-latex)
 (require 'ox-bibtex)
 
-(setq org-latex-classes '(("ltjsarticle"
-            "\\documentclass{ltjsarticle}
+(setq org-latex-classes '(("jsarticle"
+            "\\documentclass{jsarticle}
 \\usepackage{graphicx}
 \\usepackage{color}
 \\usepackage{atbegshi}
-\\usepackage[unicode=true,bookmarks=true]{hyperref}
 \\usepackage{bookmark}
 \\usepackage{url}
 \\usepackage{caption}
@@ -24,8 +23,8 @@
             ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))
                ))
 
-(setq org-latex-default-class "ltjsarticle")
-(setq org-latex-pdf-process '("lualatex %b" "lualatex %b" "pbibtex %b" "lualatex %b" "lualatex %b" "lualatex %b"))
+(setq org-latex-default-class "jsarticle")
+(setq org-latex-pdf-process '("platex %b" "platex %b" "platex %b" "dvipdfm %b"))
 
 (defun org-mode-reftex-setup ()
   (load-library "reftex")
